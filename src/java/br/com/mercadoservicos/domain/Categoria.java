@@ -11,7 +11,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-@Entity
+@Entity // tenta encotrar uma tabela no banco em um bjeto java
 @Table(name = "categoria")
 public class Categoria implements Serializable{
     
@@ -74,8 +74,9 @@ public class Categoria implements Serializable{
         }
         return true;
     }
-    
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Categoria{" + "id=" + id + ", descricao=" + descricao + '}';
+    } 
 }
