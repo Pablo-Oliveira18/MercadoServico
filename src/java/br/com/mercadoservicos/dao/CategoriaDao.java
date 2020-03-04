@@ -66,7 +66,7 @@ public class CategoriaDao {
         
     }
     
-    public boolean update(Categoria categoria){
+    public boolean alterar(Categoria categoria){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         try{
