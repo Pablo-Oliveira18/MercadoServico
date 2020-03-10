@@ -13,7 +13,7 @@ public class CategoriaController {
     private String descricao;
     private Integer id;
     private List<Categoria> categorias;
-    private CategoriaService categoriaService;
+    private CategoriaService categoriaService = new CategoriaService();
 
     public CategoriaController() {
         listar();

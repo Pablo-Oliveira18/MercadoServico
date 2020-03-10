@@ -3,7 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/index.xhtml</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservico/controller/CategoriaController.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/util/HibernateUtil.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/hibernate.cfg.xml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/dao/CategoriaDao.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/service/CategoriaService.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/categoria/list.xhtml</file>
         </group>
     </open-files>
 </project-private>
