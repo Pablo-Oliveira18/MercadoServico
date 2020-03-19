@@ -9,9 +9,8 @@ import javax.faces.bean.RequestScoped;
 @ManagedBean (name = "categoriaMB")
 @RequestScoped
 public class CategoriaController {
-    
-    private String descricao;
-    private Integer id;
+   
+    private Categoria categoria = new Categoria();
     private List<Categoria> categorias;
     private CategoriaService categoriaService = new CategoriaService();
 
@@ -24,28 +23,36 @@ public class CategoriaController {
     }
     
     public String novo(){
-        return "private/cadastros/categoria/new.xhtml?faces-redirect=true";
+        return "new.xhtml?faces-redirect=true";
     }
     
     public String cancelar(){
-        return "private/cadastros/categoria/list.xhtml?faces-redirect=true";
+        return "list.xhtml?faces-redirect=true";
+    }
+    
+    public String salvar(){
+        categoriaService.inserir(categoria);
+        return "list.xhtml?faces-redirect=true";
     }
 
-    public String getDescricao() {
-        return descricao;
+    public Categoria getCategoria() {
+        return categoria;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 
-    public Integer getId() {
-        return id;
+    public CategoriaService getCategoriaService() {
+        return categoriaService;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setCategoriaService(CategoriaService categoriaService) {
+        this.categoriaService = categoriaService;
     }
+    
+    
+
 
     public List<Categoria> getCategorias() {
         return categorias;
