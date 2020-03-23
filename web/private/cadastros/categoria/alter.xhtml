@@ -11,8 +11,8 @@
         <h:form id="form">
             <p:growl id="growl" life="3000" />
             <label>Descrição</label>
-            <p:inputText id="descricao" value="#{categoriaMB.categoria.descricao}" required="true" requiredMessage="Descriçãoo é obrigatória !"/>
-            <p:commandButton action="#{categoriaMB.salvar}" value="Salvar" update="growl"/>
+            <p:inputText value="#{categoriaMB.categoria.descricao}" required="true" requiredMessage="Descriçãoo é obrigatória !"/>
+            <p:commandButton action="#{categoriaMB.alterar()}" value="Alterar" update="growl"/>
             <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />
         </h:form>
         

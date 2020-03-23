@@ -16,11 +16,12 @@
             </p:column>
            
             <p:column headerText="Editar" width="80">
-                <p:commandLink value="Editar"/>
+                <p:commandLink value="Editar" action="#{categoriaMB.buscaDados(categoria)}"/>
             </p:column>
             
             <p:column headerText="Excluir" width="80">
-                <p:commandLink value="Excluir"/>  
+                <p:commandLink value="Excluir" action="#{categoriaMB.excluir(categoria)}"
+                               onclick="if (!confirm('Confirma a exclusão ?')) return false"/>  
             </p:column>
                 
         </p:dataTable>

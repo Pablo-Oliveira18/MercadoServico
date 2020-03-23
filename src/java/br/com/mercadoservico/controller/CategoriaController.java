@@ -5,9 +5,10 @@ import br.com.mercadoservicos.service.CategoriaService;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.bean.SessionScoped;
 
 @ManagedBean (name = "categoriaMB")
-@RequestScoped
+@SessionScoped
 public class CategoriaController {
    
     private Categoria categoria = new Categoria();
@@ -23,6 +24,7 @@ public class CategoriaController {
     }
     
     public String novo(){
+        categoria = new Categoria();
         return "new.xhtml?faces-redirect=true";
     }
     
@@ -32,7 +34,27 @@ public class CategoriaController {
     
     public String salvar(){
         categoriaService.inserir(categoria);
+        this.listar();
         return "list.xhtml?faces-redirect=true";
+    }
+    
+    
+    public String alterar(){
+        categoriaService.alterar(categoria);
+        this.listar();
+        return "list.xhtml?faces-redirect=true";
+    }
+    
+    public String excluir(Categoria categoria){
+        categoriaService.excluir(categoria);
+        this.listar();
+        return "list.xhtml?faces-redirect=true";
+
+    }
+    
+    public String buscaDados(Categoria categoria){
+        this.categoria = categoria;
+        return "alter.xhtml?faces-redirect=true";
     }
 
     public Categoria getCategoria() {
