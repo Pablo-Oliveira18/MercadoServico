@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Mercado de Serviços</title>
+        <link rel="stylesheet" type="text/css" href="#{request.contextPath}/resources/css/style.css"/> <!-- a EL pega o contexto da pasta q esta,
+                                                                                                      tornando o CSS Dinamico -->
+    </h:head>
+    
+    <h:body>
+        
+        <ui:include src="cabecalho.xhtml" />
+        
+        
+        <h:form id="form">
+            
+            <ui:include src="menu.xhtml" />
+            
+            <p:growl id="growl" life="3000" />
+            
+            
+            <ui:insert name="conteudo"/>
+            
+        </h:form>
+        
+    </h:body>
+</html>
+
