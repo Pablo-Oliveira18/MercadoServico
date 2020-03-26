@@ -8,24 +8,31 @@
     <ui:composition template="/private/template/template.xhtml">
 
         <ui:define name="conteudo">  <!-- define é onde defino meu conteudo -->
-        <h1>Categorias</h1>
-        <p:dataTable value="#{categoriaMB.categorias}" var="categoria" emptyMessage="Caso Não Exista, Exiba">
-            <p:column headerText="Descrição"> 
-                #{categoria.descricao}
-            </p:column>
-           
-            <p:column headerText="Editar" width="80">
-                <p:commandLink value="Editar" action="#{categoriaMB.buscaDados(categoria)}"/>
-            </p:column>
-            
-            <p:column headerText="Excluir" width="80">
-                <p:commandLink value="Excluir" action="#{categoriaMB.excluir(categoria)}"
-                               onclick="if (!confirm('Confirma a exclusão ?')) return false"/>  
-            </p:column>
+            <p:panel id="panel" header="Categorias" style="margin: 20px">
                 
-        </p:dataTable>
-            <p:commandButton value="Novo" id="Novo" action="#{categoriaMB.novo()}" /> <br/>
-            
+
+                <p:dataTable value="#{categoriaMB.categorias}" var="categoria" emptyMessage="Caso Não Exista, Exiba" 
+                             style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
+                    <p:column headerText="Descrição" sortBy="#{categoria.descricao}"> 
+                        #{categoria.descricao}
+                    </p:column>
+
+                    <p:column headerText="Editar" width="80" style="text-align: center">
+                        <p:commandButton action="#{categoriaMB.buscaDados(categoria)}" icon="ui-icon-pencil" title="Editar"/>
+                    </p:column>
+
+                    <p:column headerText="Excluir" width="80" style="text-align: center">
+                        <p:commandButton action="#{categoriaMB.excluir(categoria)}" icon="ui-icon-trash" title="Excluir"
+                                       onclick="if (!confirm('Confirma a exclusão ?')) return false"/>  
+                    </p:column>
+
+                </p:dataTable>
+                
+                <div align="center">
+                    <p:commandButton value="Novo" id="Novo" action="#{categoriaMB.novo()}" /> <br/>
+                </div>
+                
+            </p:panel>
         </ui:define>
             
     </ui:composition>

@@ -9,11 +9,21 @@
 
         <ui:define name="conteudo">
         
-            
-            <label>Descrição</label>
-            <p:inputText id="descricao" value="#{categoriaMB.categoria.descricao}" required="true" requiredMessage="Descriçãoo é obrigatória !"/>
-            <p:commandButton action="#{categoriaMB.salvar}" value="Salvar" update="growl"/>
-            <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />
+            <p:panel id="panel" header="Categorias" style="margin: 20px">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <label>Descrição:</label>
+                        <p:inputText id="descricao" value="#{categoriaMB.categoria.descricao}" style="width: 95%;"
+                                     required="true" requiredMessage="Descriçãoo é obrigatória !"/>
+                    </div>
+                </div>
+                
+                <div align="center">  
+                    <p:commandButton action="#{categoriaMB.salvar}" value="Salvar" update="growl"/>
+                    <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />  
+                </div>
+
+            </p:panel>
             
         </ui:define>
         

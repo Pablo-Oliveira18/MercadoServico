@@ -2,14 +2,14 @@ package br.com.mercadoservico.controller;
 
 import br.com.mercadoservicos.domain.Categoria;
 import br.com.mercadoservicos.service.CategoriaService;
+import java.io.Serializable;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
-import javax.faces.bean.RequestScoped;
 import javax.faces.bean.SessionScoped;
 
 @ManagedBean (name = "categoriaMB")
 @SessionScoped
-public class CategoriaController {
+public class CategoriaController implements Serializable{
    
     private Categoria categoria = new Categoria();
     private List<Categoria> categorias;

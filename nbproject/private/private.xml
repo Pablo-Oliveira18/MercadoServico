@@ -4,10 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/index.xhtml</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/template/cabecalho.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservico/controller/CategoriaController.java</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/categoria/new.xhtml</file>
-            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/dao/CategoriaDao.java</file>
-            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/service/CategoriaService.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/resources/css/style.css</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/template/template.xhtml</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/template/menu.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/categoria/alter.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/categoria/list.xhtml</file>
         </group>
