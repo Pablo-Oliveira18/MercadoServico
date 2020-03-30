@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <ui:composition template="/private/template/template.xhtml">
+
+        <ui:define name="conteudo">
+        
+            <p:panel id="panel" header="Serviços" style="margin: 20px">
+                <div class="ui-g">
+                    <div class="ui-g-6">
+                        <label>Descrição:</label>
+                        <p:inputText id="descricao" value="#{servicoMB.servico.descricao}" style="width: 95%;"
+                                     required="true" requiredMessage="Descriçãoo é obrigatória !"/>
+                    </div>
+                
+                
+                    <div class="ui-g-2">
+                        <label>Preço</label>
+                        <p:inputText id="preco" value="#{servicoMB.servico.preco}" style="width: 98%;"
+                                     required="true" requiredMessage="Preço é Obrigatório"/>
+                    </div>
+
+                    <div class="ui-g-4">
+                        <label>Categoria</label>
+                        <p:inputText id="categoria" value="#{servicoMB.servico.categoria}" style="width: 98%;"
+                                     required="true" requiredMessage="Categoria é Obrigatório"/>
+
+                    </div>
+                </div>
+                
+                <br/>
+                
+                <div align="center">  
+                    <p:commandButton action="#{categoriaMB.salvar}" value="Salvar" update="growl"/>
+                    <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />  
+                </div>
+
+            </p:panel>
+            
+        </ui:define>
+        
+    </ui:composition>
+        
+
+</html>
+

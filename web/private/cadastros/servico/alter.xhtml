@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+    <ui:composition template="/private/template/template.xhtml">
+        
+        <ui:define name="conteudo" >
+            <p:panel id="panel" header="Categorias" style="margin: 20px">
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <label>Descrição:</label>
+                        <p:inputText id="descricao" value="#{categoriaMB.categoria.descricao}" style="width: 95%;"
+                                     required="true" requiredMessage="Descriçãoo é obrigatória !"/>
+                    </div>
+                </div>
+
+                <div align="center">
+
+                    <p:commandButton action="#{categoriaMB.alterar()}" value="Alterar" update="growl" style="margin-left: 10px;"/>
+                    <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />
+
+
+                </div>
+
+            </p:panel>
+            
+        </ui:define>
+        
+    </ui:composition>
+
+</html>
+

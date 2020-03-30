@@ -8,6 +8,9 @@
     <property name="hibernate.connection.password">root</property>
     <property name="hibernate.jdbc.use_get_generated_keys">true</property>
     <property name="hibernate.current_session_context_class">thread</property>
+    
     <mapping class="br.com.mercadoservicos.domain.Categoria"/>
+    <mapping class="br.com.mercadoservicos.domain.Servico"/>
+
   </session-factory>
 </hibernate-configuration>

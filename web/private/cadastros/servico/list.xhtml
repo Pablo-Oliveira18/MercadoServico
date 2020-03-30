@@ -1,0 +1,51 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <ui:composition template="/private/template/template.xhtml">
+
+        <ui:define name="conteudo">  <!-- define é onde defino meu conteudo -->
+            <p:panel id="panel" header="Servicos" style="margin: 20px">
+                
+
+                <p:dataTable value="#{servicoMB.servicos}" var="servico" emptyMessage="Caso Não Exista, Exiba" 
+                             style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
+                    <p:column headerText="Descrição" sortBy="#{servico.descricao}"> 
+                        #{servico.descricao}
+                    </p:column>
+                    
+                    <p:column headerText="Preço" sortBy="#{servico.preco}"> 
+                        #{servico.preco}
+                    </p:column>
+                    
+                    <p:column headerText="Categoria" sortBy="#{servico.categoria.descricao}"> 
+                        #{servico.categoria.descricao}
+                    </p:column>
+                    
+                    
+
+                    <p:column headerText="Editar" width="80" style="text-align: center">
+                        <p:commandButton action="#{servicoMB.buscaDados(servico)}" icon="ui-icon-pencil" title="Editar"/>
+                    </p:column>
+
+                    <p:column headerText="Excluir" width="80" style="text-align: center">
+                        <p:commandButton action="#{servicoMB.excluir(servico)}" icon="ui-icon-trash" title="Excluir"
+                                       onclick="if (!confirm('Confirma a exclusão ?')) return false"/>  
+                    </p:column>
+
+                </p:dataTable>
+                
+                <div align="center">
+                    <p:commandButton value="Novo" id="Novo" action="#{servicoMB.novo()}" /> <br/>
+                </div>
+                
+            </p:panel>
+        </ui:define>
+            
+    </ui:composition>
+
+</html>
+
