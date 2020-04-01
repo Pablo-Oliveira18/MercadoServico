@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
     
     <ui:composition template="/private/template/template.xhtml">
 
@@ -11,18 +12,21 @@
             <p:panel id="panel" header="Servicos" style="margin: 20px">
                 
 
-                <p:dataTable value="#{servicoMB.servicos}" var="servico" emptyMessage="Caso Não Exista, Exiba" 
+                <p:dataTable value="#{servicoMB.servicos}" var="servico" emptyMessage="Nenhum registro encontrado" 
                              style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
                     <p:column headerText="Descrição" sortBy="#{servico.descricao}"> 
-                        #{servico.descricao}
+                        <h:outputText value="#{servico.descricao}"/>
                     </p:column>
                     
-                    <p:column headerText="Preço" sortBy="#{servico.preco}"> 
-                        #{servico.preco}
+                    <p:column headerText="Preço" width="120" sortBy="#{servico.preco}"> 
+                        <h:outputText value="#{servico.preco}">
+                            <f:convertNumber minFractionDigits="2"/>
+                        </h:outputText>
+                           
                     </p:column>
                     
                     <p:column headerText="Categoria" sortBy="#{servico.categoria.descricao}"> 
-                        #{servico.categoria.descricao}
+                        <h:outputText value="#{servico.categoria.descricao}"/>
                     </p:column>
                     
                     

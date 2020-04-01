@@ -3,15 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/index.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/service/ServicoService.java</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservico/controller/CategoriaController.java</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservico/controller/ServicoController.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/dao/CategoriaDao.java</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/domain/Servico.java</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/servico/alter.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/servico/new.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/template/menu.xhtml</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/src/java/br/com/mercadoservicos/dao/ServicoDao.java</file>
             <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/servico/list.xhtml</file>
+            <file>file:/C:/Users/Pablo/Dropbox/Faculdade/7Periodo/TopicosEspeciais/MercadoServicos/web/private/cadastros/categoria/alter.xhtml</file>
         </group>
     </open-files>
 </project-private>
