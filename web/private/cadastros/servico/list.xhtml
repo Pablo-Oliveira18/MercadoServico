@@ -37,7 +37,7 @@
 
                     <p:column headerText="Excluir" width="80" style="text-align: center">
                         <p:commandButton action="#{servicoMB.excluir(servico)}" icon="ui-icon-trash" title="Excluir"
-                                       onclick="if (!confirm('Confirma a exclusão ?')) return false"/>  
+                                         onclick="if (!confirm('Confirma a exclusão ?')) return false" update=":form:growl"/>  
                     </p:column>
 
                 </p:dataTable>

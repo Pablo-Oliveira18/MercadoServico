@@ -11,7 +11,7 @@
             <p:panel id="panel" header="Categorias" style="margin: 20px">
                 
 
-                <p:dataTable value="#{categoriaMB.categorias}" var="categoria" emptyMessage="Caso Não Exista, Exiba" 
+                <p:dataTable id="dataTable" value="#{categoriaMB.categorias}" var="categoria" emptyMessage="Caso Não Exista, Exiba" 
                              style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
                     <p:column headerText="Descrição" sortBy="#{categoria.descricao}"> 
                         #{categoria.descricao}
@@ -22,8 +22,8 @@
                     </p:column>
 
                     <p:column headerText="Excluir" width="80" style="text-align: center">
-                        <p:commandButton action="#{categoriaMB.excluir(categoria)}" icon="ui-icon-trash" title="Excluir"
-                                       onclick="if (!confirm('Confirma a exclusão ?')) return false"/>  
+                        <p:commandButton id="excluir" action="#{categoriaMB.excluir(categoria)}" icon="ui-icon-trash" title="Excluir"
+                                         onclick="if (!confirm('Confirma a exclusão ?')) return false" update=":form:growl"/>  
                     </p:column>
 
                 </p:dataTable>

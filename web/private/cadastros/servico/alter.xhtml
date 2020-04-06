@@ -28,7 +28,7 @@
                     <div class="ui-g-4">
                         <label>Categoria</label>
                         <p:selectOneMenu id="categoria" value="#{servicoMB.servico.categoria}" style="width: 98%"
-                                         required="true" requiredMessage="Categoria é obrigatória" converter="entityConverter">
+                                         required="true" requiredMessage="O Campo Categoria é obrigatória" converter="entityConverter">
 
                             <f:selectItems value="#{categoriaMB.categorias}" var="categoria"
                                            itemLabel="#{categoria.descricao}" itemValue="#{categoria}" />
@@ -41,8 +41,8 @@
                 <br/>
 
                 <div align="center">  
-                    <p:commandButton action="#{categoriaMB.alterar}" value="Alterar" update="growl"/>
-                    <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />  
+                    <p:commandButton action="#{servicoMB.alterar()}" value="Alterar" update="growl"/>
+                    <p:commandButton action="#{servicoMB.cancelar()}" value="Cancelar" immediate="true" />  
                 </div>
 
             </p:panel>

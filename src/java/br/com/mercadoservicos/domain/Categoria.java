@@ -17,7 +17,7 @@ import javax.validation.constraints.Size;
 @Table(name = "categoria")
 public class Categoria implements Serializable{
     
-    @Id  // informa qual a chave primaria do banco >>> deve colocar em cima da msma...
+    @Id  // informa qual a chave primaria do banco >>> deve colocar em cima da msma...w
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Especifica do MY SQL, dizendo que o ID é grado automaticamente...
     
     private Integer id;
@@ -27,7 +27,7 @@ public class Categoria implements Serializable{
     @Column (name = "descricao") // qndo minha coluna tem outro nome
     private String descricao;
     
-    @OneToMany // Uma categoria para muitos servicos
+    @OneToMany(mappedBy = "id") // Uma categoria para muitos servicos
     private List<Servico> servicos;
     
     public Categoria() {
