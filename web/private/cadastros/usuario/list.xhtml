@@ -1,0 +1,53 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <ui:composition template="/private/template/template.xhtml">
+
+        <ui:define name="conteudo">  <!-- define é onde defino meu conteudo -->
+            <p:panel id="panel" header="Usuarios" style="margin: 20px">
+                
+
+                <p:dataTable id="dataTable" value="#{usuarioMB.usuarios}" var="usuario" emptyMessage="Nenhum Registro Encontrado" 
+                             style="margin: 10px;" paginator="true" paginatorPosition="bottom" rows="10">
+                    <p:column headerText="Nome" sortBy="#{usuario.nome}"> 
+                        <h:outputText value="#{usuario.nome}"/>
+                    </p:column>
+                    
+                    
+                    <p:column headerText="Data Nasc" width="150" sortBy="#{usuario.dataNascimento}"> 
+                        <h:outputText value="#{usuario.dataNascimento}"> 
+                            <f:convertDateTime pattern="dd/MM/yyyy"/>
+                        </h:outputText>
+                    </p:column>
+                    
+                    <p:column headerText="Tipo" width="150" sortBy="#{usuario.tipo}"> 
+                        <h:outputText value="#{usuario.tipo == 'F' ? 'Física' : 'Júridica'}"/>
+                    </p:column>
+   
+                    <p:column headerText="Editar" width="80" style="text-align: center">
+                        <p:commandButton action="#{usuarioMB.buscaDados(usuario)}" icon="ui-icon-pencil" title="Editar"/>
+                    </p:column>
+
+                    <p:column headerText="Excluir" width="80" style="text-align: center">
+                        <p:commandButton id="excluir" action="#{usuarioMB.excluir(usuario)}" icon="ui-icon-trash" title="Excluir"
+                                         onclick="if (!confirm('Confirma a exclusão ?')) return false" update=":form:growl"/>  
+                    </p:column>
+
+                </p:dataTable>
+                
+                <div align="center">
+                    <p:commandButton value="Novo" id="Novo" action="#{usuarioMB.novo()}" /> <br/>
+                </div>
+                
+            </p:panel>
+        </ui:define>
+            
+    </ui:composition>
+
+</html>
+

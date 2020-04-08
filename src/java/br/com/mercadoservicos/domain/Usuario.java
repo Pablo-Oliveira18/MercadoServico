@@ -1,7 +1,7 @@
 package br.com.mercadoservicos.domain;
 
 import java.io.Serializable;
-import java.time.LocalDate;
+import java.util.Date;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "Usuario")
+@Table(name = "usuario")
 public class Usuario implements Serializable{
     
     @Id
@@ -36,20 +36,17 @@ public class Usuario implements Serializable{
     private String tipo;
     
     @Column(name = "cpf")
-    @Size(min=14)
+    @Size(min=20)
     private String cpf;
     
     @Column(name = "cnpj")
-    @Size(min = 17)
+    @Size(min = 20)
     private String cnpj;
     
     @Column(name = "dtNasc")
-    private LocalDate dataNascimento;
+    private Date dataNascimento;
 
-    public Usuario() {
-    }
-
-    public Usuario(Integer id, String nome, String email, String senha, String tipo, String cpf, String cnpj, LocalDate dataNascimento) {
+    public Usuario(Integer id, String nome, String email, String senha, String tipo, String cpf, String cnpj, Date dataNascimento) {
         this.id = id;
         this.nome = nome;
         this.email = email;
@@ -59,8 +56,9 @@ public class Usuario implements Serializable{
         this.cnpj = cnpj;
         this.dataNascimento = dataNascimento;
     }
-    
-    
+
+    public Usuario() {
+    }
 
     public Integer getId() {
         return id;
@@ -118,18 +116,18 @@ public class Usuario implements Serializable{
         this.cnpj = cnpj;
     }
 
-    public LocalDate getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDate dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.id);
+        int hash = 7;
+        hash = 19 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -155,6 +153,8 @@ public class Usuario implements Serializable{
     public String toString() {
         return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", tipo=" + tipo + ", cpf=" + cpf + ", cnpj=" + cnpj + ", dataNascimento=" + dataNascimento + '}';
     }
+
+   
     
     
     

@@ -18,7 +18,6 @@ public class UsuarioController implements Serializable{
 
     public UsuarioController() {
         listar();
-        FacesContext.getCurrentInstance().getExternalContext().getSessionMap().remove("servicoMB");
     }
 
     public void listar() {

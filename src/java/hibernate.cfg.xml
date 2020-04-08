@@ -11,6 +11,7 @@
     
     <mapping class="br.com.mercadoservicos.domain.Categoria"/>
     <mapping class="br.com.mercadoservicos.domain.Servico"/>
+    <mapping class="br.com.mercadoservicos.domain.Usuario"/>
 
   </session-factory>
 </hibernate-configuration>

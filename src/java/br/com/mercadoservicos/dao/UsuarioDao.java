@@ -12,7 +12,7 @@ public class UsuarioDao {
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         try {
-            List<Usuario> usuarios = session.createQuery("from usuario order by descricao").list();
+            List<Usuario> usuarios = session.createQuery("from Usuario order by nome").list();
             session.getTransaction().commit();
             return usuarios;
         } catch (Exception e) {
