@@ -3,32 +3,75 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:p="http://primefaces.org/ui"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
     <ui:composition template="/private/template/template.xhtml">
-        
-        <ui:define name="conteudo" >
-            <p:panel id="panel" header="Categorias" style="margin: 20px">
+
+        <ui:define name="conteudo">
+
+            <p:panel id="panel" header="Usuarios" style="margin: 20px">
                 <div class="ui-g">
-                    <div class="ui-g-12">
-                        <label>Descrição:</label>
-                        <p:inputText id="descricao" value="#{categoriaMB.categoria.descricao}" style="width: 95%;"
-                                     required="true" requiredMessage="Descriçãoo é obrigatória !"/>
+                    <div class="ui-g-5">
+                        <label>Nome</label>
+                        <p:inputText id="nome" value="#{usuarioMB.usuario.nome}" style="width: 98%;"
+                                     required="true" requiredMessage="O nome é obrigatório !"/>
+                    </div>
+
+                    <div class="ui-g-5">
+                        <label>Email</label>
+                        <p:inputText id="email" value="#{usuarioMB.usuario.email}" style="width: 98%;"
+                                     required="true" requiredMessage="O email é obrigatório !"/>
+                    </div>
+
+                    <div class="ui-g-2">
+
+                        <label>Senha</label>
+                        <p:password id="password" value="#{usuarioMB.usuario.senha}" style="width: 98%"
+                                    required="true" requiredMessage="Senha é obrigatoria!"/>
                     </div>
                 </div>
+                <br/>
+                <div class="ui-g">
+                    <div class="ui-g-3">
+                        <label>Tipo de Pessoa</label>
+                        <p:selectOneRadio id="tipo" value="#{usuarioMB.usuario.tipo}" style="width: 98%">
+                            <p:ajax event="change" listener="#{usuarioMB.inverteTipo()}" update="cpf cnpj dataNasc"/>
+                            <f:selectItem itemLabel="Física" itemValue="F"/>
+                            <f:selectItem itemLabel="Júridica" itemValue="J"/>
 
-                <div align="center">
+                        </p:selectOneRadio>
+                    </div>
 
-                    <p:commandButton action="#{categoriaMB.alterar()}" value="Alterar" update="growl" style="margin-left: 10px;"/>
-                    <p:commandButton action="#{categoriaMB.cancelar()}" value="Cancelar" immediate="true" />
+                    <div class="ui-g-2">
+                        <label>CPF</label>
+                        <p:inputMask id="cpf" value="#{usuarioMB.usuario.cpf}" style="width: 98%;" mask="999.999.999-99"
+                                     disabled="#{usuarioMB.desabilitaPF}"/>
+                    </div>
 
+                    <div class="ui-g-2">
+                        <label>CNPJ</label>
+                        <p:inputMask id="cnpj" value="#{usuarioMB.usuario.cnpj}" style="width: 98%;" mask="999.999.999/9999-99"
+                                     disabled="#{!usuarioMB.desabilitaPF}"/>
+                    </div>
 
+                    <div class="ui-g-2">
+                        <label>Data Nascimento</label>
+                        <p:calendar id="dataNasc" value="#{usuarioMB.usuario.dataNascimento}" pattern="dd/MM/yyyy" mask="99/99/9999"
+                                    disabled="#{usuarioMB.desabilitaPF}"/>
+                    </div>
+
+                </div>
+
+                <div align="center">  
+                    <p:commandButton action="#{usuarioMB.alterar()}" value="Alterar" update="growl"/>
+                    <p:commandButton action="#{usuarioMB.cancelar()}" value="Cancelar" immediate="true" />  
                 </div>
 
             </p:panel>
-            
+
         </ui:define>
-        
+
     </ui:composition>
 
 </html>

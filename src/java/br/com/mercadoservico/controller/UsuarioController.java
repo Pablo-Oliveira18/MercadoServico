@@ -15,6 +15,7 @@ public class UsuarioController implements Serializable{
     private Usuario usuario = new Usuario();
     private List<Usuario> usuarios;
     private UsuarioService usuarioService = new UsuarioService();
+    private Boolean desabilitaPF = false;
 
     public UsuarioController() {
         listar();
@@ -26,6 +27,7 @@ public class UsuarioController implements Serializable{
 
     public String novo() {
         usuario = new Usuario();
+        usuario.setTipo("F");
         return "new.xhtml?faces-redirect=true";
     }
 
@@ -68,6 +70,24 @@ public class UsuarioController implements Serializable{
         this.usuario = usuario;
         return "alter.xhtml?faces-redirect=true";
     }
+    
+    public void inverteTipo(){
+        if(usuario.getTipo().equals("F")){
+            desabilitaPF = false;
+        }else{
+            desabilitaPF = true;
+        }
+    }
+    
+    public String autenticar(){
+        if(usuarioService.autenticar(usuario)){
+            return "index.xhtml?faces-redirect=true";
+        }else{
+            UtilMensagens.mensagemErro("Dados Inválidos !", "Usuário ou senha incorretos");
+            return null;
+        }
+        
+    }
 
     public Usuario getUsuario() {
         return usuario;
@@ -92,4 +112,16 @@ public class UsuarioController implements Serializable{
     public void setUsuarios(List<Usuario> usuarios) {
         this.usuarios = usuarios;
     }
+
+    public Boolean getDesabilitaPF() {
+        return desabilitaPF;
+    }
+
+    public void setDesabilitaPF(Boolean desabilitaPF) {
+        this.desabilitaPF = desabilitaPF;
+    }
+
+
+    
+    
 }

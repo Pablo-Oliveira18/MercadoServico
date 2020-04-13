@@ -36,6 +36,7 @@
                     <div class="ui-g-3">
                         <label>Tipo de Pessoa</label>
                         <p:selectOneRadio id="tipo" value="#{usuarioMB.usuario.tipo}" style="width: 98%">
+                            <p:ajax event="change" listener="#{usuarioMB.inverteTipo()}" update="cpf cnpj dataNasc"/>
                             <f:selectItem itemLabel="Física" itemValue="F"/>
                             <f:selectItem itemLabel="Júridica" itemValue="J"/>
 
@@ -44,17 +45,20 @@
                     
                     <div class="ui-g-2">
                         <label>CPF</label>
-                        <p:inputMask id="cpf" value="#{usuarioMB.usuario.cpf}" style="width: 98%;" mask="999.999.999-99"/>
+                        <p:inputMask id="cpf" value="#{usuarioMB.usuario.cpf}" style="width: 98%;" mask="999.999.999-99"
+                                     disabled="#{usuarioMB.desabilitaPF}"/>
                     </div>
                     
                     <div class="ui-g-2">
                         <label>CNPJ</label>
-                        <p:inputMask id="cnpj" value="#{usuarioMB.usuario.cnpj}" style="width: 98%;" mask="999.999.999/9999-99"/>
+                        <p:inputMask id="cnpj" value="#{usuarioMB.usuario.cnpj}" style="width: 98%;" mask="999.999.999/9999-99"
+                                     disabled="#{!usuarioMB.desabilitaPF}"/>
                     </div>
                     
                     <div class="ui-g-2">
                         <label>Data Nascimento</label>
-                        <p:calendar id="dataNasc" value="#{usuarioMB.usuario.dataNascimento}" />
+                        <p:calendar id="dataNasc" value="#{usuarioMB.usuario.dataNascimento}" pattern="dd/MM/yyyy" mask="99/99/9999"
+                                    disabled="#{usuarioMB.desabilitaPF}"/>
                     </div>
 
                 </div>

@@ -1,4 +1,4 @@
-package br.com.scargames.util;
+package br.com.mercadoservicos.util;
 
 import java.security.MessageDigest;
 

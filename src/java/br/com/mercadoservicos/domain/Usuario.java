@@ -36,11 +36,11 @@ public class Usuario implements Serializable{
     private String tipo;
     
     @Column(name = "cpf")
-    @Size(min=20)
+    @Size(min=14)
     private String cpf;
     
     @Column(name = "cnpj")
-    @Size(min = 20)
+    @Size(max = 20)
     private String cnpj;
     
     @Column(name = "dtNasc")
