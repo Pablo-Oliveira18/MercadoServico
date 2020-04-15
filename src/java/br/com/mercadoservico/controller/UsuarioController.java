@@ -20,6 +20,10 @@ public class UsuarioController implements Serializable{
     public UsuarioController() {
         listar();
     }
+    
+    public void inicializarHibernate(){
+        usuarioService.inicializarHibernate();
+    }
 
     public void listar() {
         usuarios = usuarioService.listar();

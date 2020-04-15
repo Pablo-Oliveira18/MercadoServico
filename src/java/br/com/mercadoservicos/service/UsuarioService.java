@@ -9,6 +9,11 @@ import java.util.List;
 
 public class UsuarioService {
     private UsuarioDao usuarioDao = new UsuarioDao();
+    
+    
+    public void inicializarHibernate(){
+        usuarioDao.inicializarHibernate();
+    }
 
     public List<Usuario> listar() {
         return usuarioDao.listar();
