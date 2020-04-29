@@ -1,6 +1,7 @@
 package br.com.mercadoservicos.domain;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -31,6 +33,9 @@ public class Servico implements Serializable{
     @ManyToOne // tenho um uúnico serviço para varias categorias
     @JoinColumn (name = "idCategoria", referencedColumnName="id" ) // em qual coluna é feito essa junção, e nome da coluna q esta usando para referenciar
     private Categoria categoria;
+    
+    @OneToMany (mappedBy="id")
+    private List<ItensOrdemServico> itensOs;
     
     public Servico(){
         
@@ -73,6 +78,14 @@ public class Servico implements Serializable{
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<ItensOrdemServico> getItensOs() {
+        return itensOs;
+    }
+
+    public void setItensOs(List<ItensOrdemServico> itensOs) {
+        this.itensOs = itensOs;
     }
 
 

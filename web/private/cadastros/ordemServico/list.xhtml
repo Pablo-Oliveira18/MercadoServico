@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/private/template/template.xhtml">
+        <ui:define name="conteudo">
+            <p:panel id="panel" header="Ordens de Serviço" style="margin: 20px;">
+                <p:dataTable id="datatable" value="#{ordemServicoMB.ordemServicos}" var="ordemServico"
+                             emptyMessage="Nenhum registro encontrado" style="margin: 10px;"
+                             paginator="true" paginatorPosition="bottom" rows="10">
+                    <p:column headerText="Data/Hora" sortBy="#{ordemServico.dataHora}">
+                        <h:outputText value="#{ordemServico.dataHora}">
+                            <f:convertDateTime pattern="dd/MM/yyyy HH:mm" timeZone="America/Sao_Paulo"/>
+                        </h:outputText>
+                    </p:column>
+                    <p:column headerText="Empresa" sortBy="#{ordemServico.empresa.nome}">
+                        #{ordemServico.empresa.nome}
+                    </p:column>
+                    <p:column headerText="Cliente" sortBy="#{ordemServico.cliente.nome}">
+                        #{ordemServico.cliente.nome}
+                    </p:column>
+                    <p:column headerText="Editar" width="80" style="text-align: center;">
+                        <p:commandButton action="#{ordemServicoMB.buscaDados(ordemServico)}" icon="ui-icon-pencil" title="Editar"/>
+                    </p:column>
+                    <p:column headerText="Excluir" width="80" style="text-align: center;">
+                        <p:commandButton id="excluir" action="#{ordemServicoMB.excluir(ordemServico)}" icon="ui-icon-trash" title="Excluir"
+                                       onclick="if (!confirm('Confirma a exclusão?')) return false" update=":form:growl"/>
+                    </p:column>
+                </p:dataTable>
+                <div align="center">
+                    <p:commandButton id="novo" value="Novo" action="#{ordemServicoMB.novo()}"/>
+                </div>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>

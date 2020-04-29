@@ -3,43 +3,49 @@ package br.com.mercadoservicos.service;
 import br.com.mercadoservicos.dao.UsuarioDao;
 import br.com.mercadoservicos.domain.Usuario;
 import br.com.mercadoservicos.util.HashMaker;
-
 import java.util.List;
 
-
 public class UsuarioService {
-    private UsuarioDao usuarioDao = new UsuarioDao();
     
+    private UsuarioDao usuarioDao = new UsuarioDao();
     
     public void inicializarHibernate(){
         usuarioDao.inicializarHibernate();
     }
-
-    public List<Usuario> listar() {
+    
+    public List<Usuario> listar(){
         return usuarioDao.listar();
     }
-
-    public Usuario consultar(Integer id) {
-        return usuarioDao.consulta(id);
+    
+    public List<Usuario> listarClientes(){
+        return usuarioDao.listarClientes();
     }
-
-    public boolean inserir(Usuario usuario) {
+    
+    public List<Usuario> listarEmpresas(){
+        return usuarioDao.listarEmpresas();
+    }
+    
+    public Usuario consultar(Integer id){
+        return usuarioDao.consultar(id);
+    }
+    
+    public boolean inserir(Usuario usuario){
         usuario.setSenha(HashMaker.stringHexa(HashMaker.gerarHash(usuario.getSenha())));
         return usuarioDao.inserir(usuario);
     }
-
-    public boolean alterar(Usuario usuario) {
+    
+    public boolean alterar(Usuario usuario){
         usuario.setSenha(HashMaker.stringHexa(HashMaker.gerarHash(usuario.getSenha())));
         return usuarioDao.alterar(usuario);
     }
-
-    public boolean excluir(Usuario usuario) {
+    
+    public boolean excluir(Usuario usuario){
         return usuarioDao.excluir(usuario);
     }
     
     public boolean autenticar(Usuario usuario){
-        Usuario usuarioBanco = usuarioDao.consultaPorEmail(usuario.getEmail());
-        if(usuarioBanco == null){
+        Usuario usuarioBanco = usuarioDao.consultarPorEmail(usuario.getEmail());
+        if (usuarioBanco == null){
             return false;
         }else{
             String senhaCriptografada = HashMaker.stringHexa(HashMaker.gerarHash(usuario.getSenha()));

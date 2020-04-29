@@ -15,41 +15,45 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
-@Table(name = "usuario")
+@Table(name="usuario")
 public class Usuario implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
+    
     @NotNull
-    @Column(name = "nome")
+    @Column(name="nome")
     private String nome;
     
     @NotNull
-    @Column(name = "email", unique = true)
+    @Column(name="email", unique=true)
     private String email;
     
     @NotNull
-    @Column(name = "senha")
+    @Column(name="senha")
     private String senha;
-   
+    
     @NotNull
-    @Column(name = "tipo")
+    @Column(name="tipo")
     private String tipo;
     
-    @Column(name = "cpf")
+    @Column(name="cpf")
     @Size(min=14)
     private String cpf;
     
-    @Column(name = "cnpj")
-    @Size(max = 20)
+    @Column(name="cnpj")
+    @Size(min=17)
     private String cnpj;
     
-    @Column(name = "dtNasc")
+    @Column(name="dtNasc")
     private Date dataNascimento;
     
-    @OneToMany(mappedBy ="id")
+    @OneToMany(mappedBy="id")
     private List<OrdemServico> ordensServico;
+    
+    public Usuario(){
+    }
 
     public Usuario(Integer id, String nome, String email, String senha, String tipo, String cpf, String cnpj, Date dataNascimento) {
         this.id = id;
@@ -60,9 +64,6 @@ public class Usuario implements Serializable{
         this.cpf = cpf;
         this.cnpj = cnpj;
         this.dataNascimento = dataNascimento;
-    }
-
-    public Usuario() {
     }
 
     public Integer getId() {
@@ -129,10 +130,18 @@ public class Usuario implements Serializable{
         this.dataNascimento = dataNascimento;
     }
 
+    public List<OrdemServico> getOrdensServico() {
+        return ordensServico;
+    }
+
+    public void setOrdensServico(List<OrdemServico> ordensServico) {
+        this.ordensServico = ordensServico;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 19 * hash + Objects.hashCode(this.id);
+        hash = 13 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -157,12 +166,5 @@ public class Usuario implements Serializable{
     @Override
     public String toString() {
         return "Usuario{" + "id=" + id + ", nome=" + nome + ", email=" + email + ", senha=" + senha + ", tipo=" + tipo + ", cpf=" + cpf + ", cnpj=" + cnpj + ", dataNascimento=" + dataNascimento + '}';
-    }
-
-   
-    
-    
-    
-    
-    
+    }    
 }

@@ -2,7 +2,9 @@ package br.com.mercadoservicos.domain;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 import java.util.Objects;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,33 +12,37 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 @Entity
-@Table (name = "ordemServico")
-public class OrdemServico  implements Serializable{
+@Table(name="ordemServico")
+public class OrdemServico implements Serializable{
     
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer id;
     
     @NotNull
-    @Column(name = "dataHora")
+    @Column(name="dataHora")
     private Date dataHora;
     
-    @Column(name = "observacao")
+    @Column(name="observacao")
     private String observacao;
     
     @ManyToOne
-    @JoinColumn(name="idCliente", referencedColumnName = "id")
+    @JoinColumn(name="idCliente", referencedColumnName="id")
     private Usuario cliente;
     
     @ManyToOne
-    @JoinColumn(name = "idEmpresa", referencedColumnName = "id")
+    @JoinColumn(name="idEmpresa", referencedColumnName="id")
     private Usuario empresa;
-
-    public OrdemServico() {
+    
+    @OneToMany (mappedBy="itensOrdemServicoPk.id", cascade=CascadeType.ALL)
+    private List<ItensOrdemServico> itensOs;
+    
+    public OrdemServico(){
     }
 
     public OrdemServico(Integer id, Date dataHora, String observacao, Usuario cliente, Usuario empresa) {
@@ -87,10 +93,20 @@ public class OrdemServico  implements Serializable{
         this.empresa = empresa;
     }
 
+    public List<ItensOrdemServico> getItensOs() {
+        return itensOs;
+    }
+
+    public void setItensOs(List<ItensOrdemServico> itensOs) {
+        this.itensOs = itensOs;
+    }
+    
+    
+
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 17 * hash + Objects.hashCode(this.id);
+        int hash = 5;
+        hash = 11 * hash + Objects.hashCode(this.id);
         return hash;
     }
 
@@ -116,7 +132,4 @@ public class OrdemServico  implements Serializable{
     public String toString() {
         return "OrdemServico{" + "id=" + id + ", dataHora=" + dataHora + ", observacao=" + observacao + ", cliente=" + cliente + ", empresa=" + empresa + '}';
     }
-    
-    
-    
 }

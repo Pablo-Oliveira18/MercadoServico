@@ -1,0 +1,43 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <ui:composition template="/private/template/template.xhtml">
+        <ui:define name="conteudo">
+            <p:panel id="panel" header="Ordens de Serviço" style="margin: 20px;">
+                <div class="ui-g">
+                    <div class="ui-g-6">
+                        <label>Cliente</label><br/>
+                        <p:selectOneMenu id="cliente" value="#{ordemServicoMB.ordemServico.cliente}" style="width: 93%"
+                                         converter="entityConverter">
+                            <f:selectItems value="#{ordemServicoMB.clientes}" var="cliente"
+                                           itemLabel="#{cliente.nome}" itemValue="#{cliente}"/>
+                        </p:selectOneMenu>
+                    </div>
+                    <div class="ui-g-6">
+                        <label>Empresa</label><br/>
+                        <p:selectOneMenu id="empresa" value="#{ordemServicoMB.ordemServico.empresa}" style="width: 93%"
+                                         converter="entityConverter">
+                            <f:selectItems value="#{ordemServicoMB.empresas}" var="empresa"
+                                           itemLabel="#{empresa.nome}" itemValue="#{empresa}"/>
+                        </p:selectOneMenu>
+                    </div>
+                </div>
+                <div class="ui-g">
+                    <div class="ui-g-12">
+                        <label>Observações</label><br/>
+                        <p:inputTextarea id="observacao" value="#{ordemServicoMB.ordemServico.observacao}" style="width: 98%" rows="3"/>
+                    </div>
+                </div>
+                <br/>
+                <div align="center">
+                    <p:commandButton action="#{ordemServicoMB.salvar()}" value="Salvar" update="growl" style="margin-right: 10px;"/>
+                    <p:commandButton action="#{ordemServicoMB.cancelar()}" value="Cancelar" immediate="true"/>
+                </div>
+                <br/>
+            </p:panel>
+        </ui:define>
+    </ui:composition>
+</html>
