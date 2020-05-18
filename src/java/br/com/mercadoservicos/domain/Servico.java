@@ -34,7 +34,7 @@ public class Servico implements Serializable{
     @JoinColumn (name = "idCategoria", referencedColumnName="id" ) // em qual coluna é feito essa junção, e nome da coluna q esta usando para referenciar
     private Categoria categoria;
     
-    @OneToMany (mappedBy="id")
+    @OneToMany (mappedBy="servico")
     private List<ItensOrdemServico> itensOs;
     
     public Servico(){

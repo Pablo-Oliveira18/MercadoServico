@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:p="http://primefaces.org/ui"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-      xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
     <ui:composition template="/private/template/template.xhtml">
         <ui:define name="conteudo">
             <p:panel id="panel" header="Ordens de Serviço" style="margin: 20px;">
@@ -32,6 +33,73 @@
                     </div>
                 </div>
                 <br/>
+                
+                <div class="ui-g" >
+                    
+                    <div class="ui-g-6"> 
+                        <label>Serviços</label><br/>
+                        <p:selectOneMenu id="servico" value="#{ordemServicoMB.itemOrdemServico.servico}" style="width: 98%"
+                                         converter="entityConverter"  required="true" requiredMessage="Serviço é Obrigatorio">
+                            <f:selectItem itemLabel="-- Selecione um serviço --" noSelectionOption="true"/>
+                            <f:selectItems value="#{servicoMB.servicos}" var="servico"
+                                           itemLabel="#{servico.descricao}" itemValue="#{servico}"/>
+                        </p:selectOneMenu>
+                    </div>
+                    
+                    <div class="ui-g-2"> 
+                        <label>Quantidade</label><br/>
+                        <p:inputText id="quantidade" value="#{ordemServicoMB.itemOrdemServico.quantidade}" style="width: 98%" 
+                                     requiredMessage="Quantidade é obrigatoria !">
+                            <p:ajax event="blur" listener="#{ordemServicoMB.calculaTotal()}" update="preco"/>
+                            
+                        </p:inputText>
+                    </div>
+                    
+                    <div class="ui-g-2"> 
+                        <label>Preço</label><br/>
+                        <p:inputText id="preco" value="#{ordemServicoMB.itemOrdemServico.preco}" style="width: 98%"
+                                     requiredMessage="Preço é obrigaorio " disabled="true"/>
+                    </div>
+                    
+                    <div class="ui-g-2"> 
+                        <br/>
+                        <p:commandButton id="add" action="#{ordemServicoMB.addServico()}" value="Adicionar"  icon="ui-icon-plus" 
+                                         update="itensOrdemServico, servico , quantidade , preco, growl"/>
+                    </div>
+                    
+                    <div class="ui-g">
+                        <div class="ui-g-12">
+                            <p:dataTable id="itensOrdemServico" value="#{ordemServicoMB.itensOrdemServico}" var="item"
+                                         emptyMessage="Nenhum serviço cadastrado !">
+                                <p:column headerText="Serviço" sortBy="#{item.servico.descricao}">
+                                    #{item.servico.descricao}
+                                </p:column>
+                                
+                                <p:column headerText="Quantidade" width="200" style="text-align: center">
+                                    <h:outputText value="#{item.quantidade}">
+                                        <f:convertNumber minFractionDigits="2"/>
+                                    </h:outputText>
+                                </p:column>
+                                
+                                <p:column headerText="Preço" width="200"  style="text-align: center">
+                                    <h:outputText value="#{item.preco}">
+                                        <f:convertNumber minFractionDigits="2"/>
+                                    </h:outputText>
+                                </p:column>
+                                
+                                <p:column headerText="Excluir"  width="80" style="text-align: center">
+                                    <p:commandButton id="excluir" action="#{ordemServicoMB.removeServico(item)}" icon="ui-icon-trash"
+                                                     update="itensOrdemServico" immediate="true"/>
+                                </p:column>
+                                
+                            </p:dataTable>
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <br/>
+                
                 <div align="center">
                     <p:commandButton action="#{ordemServicoMB.salvar()}" value="Salvar" update="growl" style="margin-right: 10px;"/>
                     <p:commandButton action="#{ordemServicoMB.cancelar()}" value="Cancelar" immediate="true"/>

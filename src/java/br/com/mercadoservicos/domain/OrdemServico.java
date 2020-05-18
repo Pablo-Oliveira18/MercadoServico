@@ -39,7 +39,7 @@ public class OrdemServico implements Serializable{
     @JoinColumn(name="idEmpresa", referencedColumnName="id")
     private Usuario empresa;
     
-    @OneToMany (mappedBy="itensOrdemServicoPk.id", cascade=CascadeType.ALL)
+    @OneToMany (mappedBy="itensOrdemServicoPk.ordemServico", cascade=CascadeType.ALL)
     private List<ItensOrdemServico> itensOs;
     
     public OrdemServico(){

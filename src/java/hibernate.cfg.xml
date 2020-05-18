@@ -13,6 +13,7 @@
     <mapping class="br.com.mercadoservicos.domain.Servico"/>
     <mapping class="br.com.mercadoservicos.domain.Usuario"/>
     <mapping class="br.com.mercadoservicos.domain.OrdemServico"/>
+    <mapping class="br.com.mercadoservicos.domain.ItensOrdemServico"/>
 
   </session-factory>
 </hibernate-configuration>

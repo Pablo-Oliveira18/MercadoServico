@@ -19,6 +19,7 @@ public class ItensOrdemServico  implements Serializable{
     @EmbeddedId
     private ItensOrdemServicoPk itensOrdemServicoPk;
     
+    @NotNull
     @ManyToOne
     @JoinColumn(name="idServico", referencedColumnName="id")
     private Servico servico;
