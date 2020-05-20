@@ -21,11 +21,12 @@ public class OrdemServicoService {
         return ordemServicoDao.consultar(id);
     }
     
-    public boolean inserir(OrdemServico ordemServico){
+    public boolean inserir(OrdemServico ordemServico, List<ItensOrdemServico> itensOrdemServico){
         ordemServico.setDataHora(new Date());
-        ordemServico = ordemServicoDao.inserir(ordemServico);
+        Integer id = ordemServicoDao.inserir(ordemServico);
+        ordemServico = ordemServicoDao.consultar(id);
         int cont = 1;
-        for (ItensOrdemServico item : ordemServico.getItensOs()){
+        for (ItensOrdemServico item : itensOrdemServico){;
             ItensOrdemServicoPk itemPk = new ItensOrdemServicoPk();
             itemPk.setOrdemServico(ordemServico);
             itemPk.setSequencia(cont);

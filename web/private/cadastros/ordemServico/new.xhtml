@@ -43,6 +43,8 @@
                             <f:selectItem itemLabel="-- Selecione um serviço --" noSelectionOption="true"/>
                             <f:selectItems value="#{servicoMB.servicos}" var="servico"
                                            itemLabel="#{servico.descricao}" itemValue="#{servico}"/>
+                            
+                            <p:ajax event="change"/>
                         </p:selectOneMenu>
                     </div>
                     
@@ -58,7 +60,9 @@
                     <div class="ui-g-2"> 
                         <label>Preço</label><br/>
                         <p:inputText id="preco" value="#{ordemServicoMB.itemOrdemServico.preco}" style="width: 98%"
-                                     requiredMessage="Preço é obrigaorio " disabled="true"/>
+                                     requiredMessage="Preço é obrigaorio " readonly="true"/>
+                        
+                        
                     </div>
                     
                     <div class="ui-g-2"> 
@@ -101,7 +105,7 @@
                 <br/>
                 
                 <div align="center">
-                    <p:commandButton action="#{ordemServicoMB.salvar()}" value="Salvar" update="growl" style="margin-right: 10px;"/>
+                    <p:commandButton action="#{ordemServicoMB.salvar()}" value="Salvar" update="growl" style="margin-right: 10px;" immediate="true"/>
                     <p:commandButton action="#{ordemServicoMB.cancelar()}" value="Cancelar" immediate="true"/>
                 </div>
                 <br/>

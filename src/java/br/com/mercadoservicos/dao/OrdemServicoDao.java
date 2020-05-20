@@ -35,13 +35,13 @@ public class OrdemServicoDao {
         }
     }
     
-    public OrdemServico inserir(OrdemServico ordemServico){
+    public Integer inserir(OrdemServico ordemServico){
         Session session = HibernateUtil.getSessionFactory().getCurrentSession();
         session.beginTransaction();
         try{
-            ordemServico = (OrdemServico) session.save(ordemServico);
+            Integer id = (Integer) session.save(ordemServico);
             session.getTransaction().commit();
-            return ordemServico;
+            return id;
         }catch(Exception e){
             e.printStackTrace();
             session.getTransaction().rollback();
